@@ -1,0 +1,752 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+html {
+  font-size: 10px;
+}
+body {
+  background-color: white;
+  font-family: "Nunito", sans-serif;
+  color: lightslategray;
+  font-size: 1.8rem;
+}
+ul {
+  list-style: none;
+}
+h1,
+h2,
+h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  color: slategrey;
+}
+.btn {
+  border: none;
+  text-decoration: none;
+  /* Далее из св-в zeplin кнопки добавим размер и обводку */
+  height: 40px;
+  border-radius: 40px;
+  padding: 0 1.5rem;
+  font-family: "Poppins", sans-serif;
+  border: solid 1px #6852ed;
+  font-size: 1.4rem;
+  color: #6852ed;
+}
+.btn-light {
+  background-color: transparent;
+}
+.divider {
+  border: none;
+  border-bottom: 1px solid rgba(225, 228, 237, 0.8);
+}
+.wrapper {
+  width: 1146px;
+  margin: 0 auto;
+}
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 2.4rem 0 1.7rem;
+  font-size: 1.6rem;
+}
+.top-header_text {
+  color: #9c9c9c;
+}
+.top-header_phone {
+  color: #716c80;
+  text-decoration: none;
+}
+.top-header_phone:hover {
+  text-decoration: underline;
+}
+.top-header_phone::before {
+  content: "\f095";
+  font-family: FontAwesome;
+  margin-right: 0.8 rem;
+}
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-right: 1rem;
+}
+.header-navbar {
+  display: flex;
+  align-items: center;
+}
+.header_logo {
+  display: block;
+  margin-right: 5.8rem;
+}
+.header_menu {
+  display: flex;
+}
+.header_menu-item {
+  margin-right: 3rem;
+  position: relative;
+  padding: 1.8rem 0;
+  /* relative  присвоили позже, это родитель относительно подменю.Далее submenu нужно присыоить position absolute */
+}
+.header_menu-item:last-child {
+  margin-right: 0;
+}
+.header_submenu {
+  display: none;
+  position: absolute;
+  top: 5.4rem;
+  left: -3;
+  padding: 3rem;
+  /* Cледующие характеристики взяты из зеплина свойств submenu */
+  border-radius: 10px;
+  box-shadow: 0 0 20px 0 aliceblue;
+  background-color: aliceblue;
+}
+.header_menu-item:hover .header_submenu {
+  /* после hover точка ставится через пробел */
+  display: block;
+}
+.header_submenu > .header_menu-item {
+  padding: 0;
+  margin-bottom: 1rem;
+}
+.header_submenu > .header_menu-item:last-child {
+  margin-bottom: 0;
+}
+
+.header_menu-link {
+  color: #5b5766;
+  font-size: 1.6rem;
+  text-decoration: none;
+}
+.header_menu-link:hover {
+  color: #554d89;
+  text-shadow: 0 0 1px #554d89;
+}
+
+.header_menu-link_active {
+  color: #554d89;
+  font-weight: bold;
+}
+
+}
+.header-actions_text {
+  display: inline-block;
+  margin: 0 0.5rem;
+}
+.stage {
+  margin-top: 10rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Для того, чтобы сделать стрелку вниз, stage делаем relative */
+  position: relative;
+}
+.stage_content {
+  position: relative;
+  top: -6rem;
+}
+.stage_title {
+  font-size: 5rem;
+  /* посмотрели в св-вах заголовка зеплин */
+  line-height: 1.2;
+  /* тоже в св-вах и цвет сверили, а сл размер от заголовка до текста измерили */
+  margin-bottom: 3.2rem;
+}
+.stage_text {
+  font-size: 2.2rem;
+  margin-bottom: 4rem;
+}
+
+.btn-dark {
+  color: #ffffff;
+  background-image: linear-gradient(to top, #6852ed, #ba43fc);
+  padding: 1.3rem 3rem;
+  margin-right: 3rem;
+  /*  отступ от текста в кнопке contact us до границ кнопки */
+}
+.stage_action .btn-dark {
+  /* кнопка btn dark, к-я вложена в stage action будет иметь сл отступ вправо  */
+  margin-right: 3rem;
+}
+.link {
+  border: none;
+  background-color: transparent;
+  text-decoration: none;
+  color: #554d89;
+  font-family: Poppins;
+  font-size: 1.6rem;
+  cursor: pointer;
+  /* Когда у нас не просто ссылка, а сос стрелкой мы длбавляем псевдоэлемент after */}
+  
+  .link-arrow::after {
+    /* из fontawesome копируем код юникода стрелки и вставляем после\ */
+    content: '\f061';
+    font-family: FontAwesome;
+    margin-left: 1.5rem;
+}
+.link:hover {
+  text-shadow: 0 0 1px  #ba43fc;
+}
+.btn-bottom {
+  /* на стрелку вниз делаем абсолютное позиционирование */
+  position: absolute;
+  margin-bottom: -75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 110px;
+  background-color: #6852ed;
+  border-radius: 50%;
+  display: flex;
+  color: #ffffff;
+  
+  text-decoration: none;
+}
+.btn-bottom > i {
+  margin: auto ;
+  font-size: 5rem;
+  /*  если есть фиксир зн ширины и высоты, можно margin  использовать, если нет justify content align */
+}
+.features {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20rem;
+  
+}
+.infoblock {
+  width: 360px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 #e1e4ed;
+  background-color: #ffffff;
+  padding: 3rem;
+}
+
+.infoblock:hover {
+  box-shadow: 0 0 10px 0 rgba(104, 82, 237, 0.8);
+  background-image: linear-gradient(to top, #6852ed, #ba43fc);
+}
+.infoblock .fas {
+ color: #6852ed;
+ font-size: 3.2rem; 
+ margin-bottom: 3rem;
+}
+.infoblock_title {
+  font-size: 2.2rem;
+  margin-bottom: 1.9rem;
+
+}
+.infoblock_text {
+  color: #716c80 ;
+}
+.infoblock_link {
+  /* ссылка..этот блок должен быть скрыт поэтому display none */
+  display: none;
+  color: #fff;
+  margin-top: 3rem;
+}
+.infoblock:hover .fas {
+  /* при ховере наша иконка станет невидимой */
+  display: none;
+}
+.infoblock:hover .infoblock_title {
+  /* При ховере наш заголовок станет белым */
+  color: #fff;
+}
+.infoblock:hover .infoblock_text {
+
+ color: #fff;
+}
+ .infoblock:hover .infoblock_link {
+   display: inline-block;
+ }
+
+ .article {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-top: 10rem;
+ }
+
+ .article_img .article_content {
+   /* включили сетку и посмотрели, что рисунок и контентная часть занимает занимает по 6 столбцов из 12 */
+   width: 50%;
+   /* чтобы элементы не ужимались не при каких условиях сделаем shrink 0 */
+  flex-shrink: 0;
+ }
+ .article_content {
+   padding-left: 6rem;
+ }
+ .article_title {
+   width: 412px;
+   font-size: 2.8rem;
+   line-height: 1.5;
+   margin-bottom: 3rem;
+ }
+ .article_text {
+  font-size: 1.8rem;
+  line-height: 1.56;
+  color: #716c80;
+  margin-bottom: 2.4rem;
+ }
+ .article .btn {
+   /* для кнопки, которая находится внутри нашего article */
+   margin-right: 3rem;
+ }
+ .article_reverse {
+flex-direction: row-reverse;
+ }
+ .article_content_2 {
+   
+ 
+ }
+ .article_text_2 {
+  font-size: 1.8rem;
+  line-height: 1.56;
+  color: #716c80;
+  margin-bottom: 2.4rem;
+
+ }
+ .features2 {
+   display: flex;
+   margin-top: 10rem;
+   justify-content: space-between;
+   align-items: center;
+ }
+
+ .column1 {
+  margin-right: 3rem;
+ }
+  .infoblock2 {
+    margin-top: 3rem;
+  
+  }
+
+ .column2 {
+   margin-top: 3rem;
+   margin-right: 6rem;
+ }
+.infoblock4 {
+  margin-top: 3rem;
+}
+.features2_title {
+  width: 33rem;
+  height: 9.2rem;
+  font-size: 3.4rem;
+  line-height: 1.35;
+  font-weight: bold;
+  color: #554d89;
+  margin-bottom: 3rem;
+}
+.features2_text {
+  font-size: 1.8rem;
+  margin-bottom: 4.7rem;
+}
+.DIOGRAM { 
+  /* блок с текстом слева и диаграммой справа */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10rem;
+}
+  
+ .diogram_infoblock {
+   /* Размерв по ширине именно на текстовый блок слева применила, на текст отдельнонет */
+  width: 55.4rem;
+  
+  
+  }
+.diogram_title {
+  line-height: 2.58;
+  font-size: 3.4rem;
+  color: #554d89;
+}
+.diogram_text {
+
+  margin-bottom: 6.4rem;
+  width: 55.4rem
+}
+.diogram_rates {
+  text-align: left;
+}
+.dt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 1.5;
+  text-align: center;
+  color: #5b5766;
+  margin-bottom: 1rem;
+}
+  
+.diogram_line {
+  width: 55.5rem;
+  height: 0.6rem;
+  border-radius: 0.25rem;
+  background-color: rgba(225, 228, 237, 0.6);
+  margin-bottom: 3.35rem;
+
+}
+.diogram_line_blue1 {
+  width: 53.3rem;
+  height: 0.6rem;
+  background-color: #6852ed;
+}
+.diogram_line_blue2 {
+  width: 45rem;
+  height: 0.6rem;
+  background-color: #6852ed;
+}
+.diogram_line_blue3 {
+  width: 50rem;
+  height: 0.6rem;
+  background-color: #6852ed;
+}
+.diogram_line_blue4 {
+  width: 46rem;
+  height: 0.6rem;
+  background-color: #6852ed;
+}
+.video {
+    background-image: url(../img1/Background\ 1.png);
+    width: 192rem;
+    height: 48rem;
+    flex-grow: 0;
+    margin-top: 12.6rem;
+}
+.btn-video {
+  width: 8rem;
+  height: 8rem;
+  flex-grow: 0;
+  margin: 14rem 92rem 2.4rem 92rem;
+  padding: 2.5rem 2.5rem 2.5rem 3rem;
+  background-image: linear-gradient(to top, #6852ed, #ba43fc);
+  border-radius: 6rem;
+  border: none;
+}
+.btn-video .fas {
+  
+  font-size: 2.5rem;
+  
+  color: #ffffff;
+} 
+.video_title {
+  font-family: Poppins;
+  font-size: 2.8rem;
+  color: #554d89;
+  line-height:1.5; 
+  font-weight: bold;
+  margin: 2.4rem 86.5rem 1.9rem 87.4rem;
+  /* 2.4 это отступ до кнопки плей вверх, далее лево право от н и к */
+
+}
+.video_text {
+  line-height: 1.56;
+  
+  color: #5b5766;
+  margin-left:75.4rem;
+  margin-right:75.4rem;
+  font-size: 1.8rem;
+  width: 41.1rem;
+  height: 5.6rem;
+}
+.video2 {
+  background-image: url(../img1/Bg2.png);
+  width: 192rem;
+  height: 17rem;
+  margin-top: 14rem;
+  margin-bottom: 14rem;
+  
+}
+
+.Video_text_button {
+  
+  display: flex;
+  justify-content: space-between;
+
+  
+
+}
+.video_title_2 {
+  padding-left: 19rem;
+  margin-top: 6.4rem;
+  color: #554d89;
+  line-height: 3;
+  font-size: 2.4rem;
+}
+.btn-light_video {
+  margin-right: 57rem;
+  margin-top: 6.4rem;
+
+}
+
+.LEVEL {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.up_text_button {
+  display: flex;
+  justify-content: space-between;
+  
+
+}
+.infomark {
+  width: 36rem;
+  height: 56.6rem;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 #e1e4ed;
+  background-color: #ffffff;
+  padding: 3rem;
+  margin-bottom: 14rem;
+
+  
+}
+.infomark_title {
+  height: 3rem;
+  font-size: 2rem;
+  margin-bottom: 1.9rem;
+  margin-left: 6rem;
+}
+.btn1 {
+  border: none;
+  text-decoration: none;
+  border-radius: 13px;
+  background-color: rgba(225, 228, 237, 0.6);
+  padding: 0.6rem 1rem 0.5rem 1.1rem;
+  height: 2.6rem;
+ 
+}
+.btn1_red {
+  font-size: 1rem;
+  color: #ef7171;
+}
+/*  .btn1_red это кнопка внутри btn1 */
+
+.divider2 {
+  width: 4rem;
+  border-radius: 1px;
+  height: 0.2rem;
+  margin-left: 6rem;
+
+  background-color: #ba43fc;
+}
+.price {
+  width: 9.3rem;
+  height: 6rem;
+  font-family: Poppins;
+  font-size: 5rem;
+  line-height: 1.2;
+  color: #554d89;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  margin-left: 6rem;
+}
+.under_price {
+  font-size: 1.6rem;
+  line-height: 1.31;
+  color: #5b5766;
+  margin-bottom: 6rem;
+  font-family: Nunito;
+  opacity: 0.8;
+  margin-left: 6rem;
+  /* opasity это прозрачность */
+}
+
+
+.list {
+  list-style: none;
+  /* сбрасываем маркеры чтобы из фонтосома выбрать другие иконки  галочки */
+  margin-bottom: 6rem;
+ 
+}
+.fas {
+  
+  color: #6852ed;
+  font-size: 1.8rem;
+  
+}
+
+.list_text {
+ 
+  color: #716c80;
+  font-size: 1.8rem;
+  font-family: Nunito;
+
+}
+
+
+.infomark .btn {
+  margin-left: 4rem;
+ 
+
+  /* кнопка btn инутри блока infomark */
+}
+
+
+.fa-times {
+  color: #ef7171;
+}
+
+.QUESTIONS {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 12rem;
+}
+
+.icon_questions {
+display: flex;
+justify-content: stretch;
+}
+
+.icon {
+  font-size: 3.2rem;
+  color: #6852ed;
+  margin-right: 3rem;
+}
+.fas {
+  font-size: 3.2rem;
+  color: #6852ed;
+  margin-right: 1rem;
+}
+  .infoquestions {
+    width: 49.3rem;
+
+  }
+  .infoquestions_title {
+    font-size: 2rem;
+    color: #554d89;
+    margin-bottom: 1rem;
+  }
+  .infoquestions_text {
+  font-size: 1.8rem;
+  color: #716c80;
+  margin-bottom:2.8rem;
+  }
+  .FOOTER_picture {
+
+ background-image: url(../img1/Footer\ Bg.png);
+  width: 100%;
+  height: 50rem;
+}
+
+  /* картинка вне wrapper высота узнала сложив высоту элементов нв картинке */
+
+  .wrapper .FOOTER_picture {
+    margin-left: 0;
+
+ 
+  }
+  .FOOTER {
+    display: flex;
+    justify-content: space-between;
+    margin-top:22rem;
+  }
+  .footer_colomns_1 {
+   margin-right: 
+   /* размер на глаз подогнала по картинке, т.к. с шириной подвала косяк */
+  }
+  .footer_title1 {
+    font-size: 2rem;
+    font-weight: 500;
+    
+
+    color: #ffffff;
+  }
+.footer_icon_questions {
+ display: flex;
+ justify-content: left;
+ margin-bottom: 3.6rem;
+}
+.footer_icon {
+  font-size: 4.2rem;
+  color:  #ffffff;
+}
+.footer_infoquestions {
+  margin-top: 3rem;
+  color: #ffffff;
+}
+.number {
+  color: #ffffff;
+  font-size: 2.2rem;
+}
+.footer_text_address {
+  
+  color: #ffffff;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.footer_text_e-mail {
+  font-size: 1.8rem;
+  color: #ffffff;
+}
+.footer_colomns_2 {
+  margin-left: 10rem;
+  width: 37.8rem;
+}
+.footer_title2 {
+  font-size: 2rem;
+  color: #554d89;
+  line-height: 1.5;
+  margin-bottom: 3rem;
+}
+.footer_colomns_text {
+  display: flex;
+  justify-content: space-between;
+}
+.footer_colomns2_1 {
+  margin-bottom: 7rem;
+}
+.footer_colomns2_text {
+  font-size: 1.8rem;
+  line-height: 1.5;
+  color: #554d89;
+  margin-bottom: 1rem;
+}
+.footer_colomns2_2 {
+
+}
+#rectangle{
+  width: 9.9rem;
+  height: 0.4rem;
+  background-color: #e1dcff;
+  margin-bottom: 1.2rem;
+}
+.elipso {
+font-size: 1.6rem;
+line-height: 1.69;
+color: #716c80;
+
+}
+.footer_colomns_3 {
+ margin-left: 8.8rem; Х
+ width: 29.9rem;
+}
+.bth-light_footer {
+  display: flex;
+  justify-content: space-between;
+  width: 29.9rem;
+  align-items: center;
+  margin-bottom: 3rem;  
+ 
+}
+.fa-mouse-pointer {
+font-size: inherit;
+
+}
+.footer_colomns_3_text{
+  width: 26.3rem;
+  height: 5.4rem;
+  font-size: 1.8rem;
+  line-height: 1.5;
+  color: #716c80;
+
+}
+.bth-light_footer {
+  
+  font-size:1.8rem;
+  line-height: 1.5;
+  color: #716c80;
+}
